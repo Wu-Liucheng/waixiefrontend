@@ -1,0 +1,8 @@
+export const DEMAND_APPLY_CHANGE_DATA = 'da/0';
+export const DEMAND_APPLY_CHANGE_CURRENT_PAGE_CODE = 'da/1';
+export const DEMAND_APPLY_CHANGE_TOTAL = 'da/2';
+export const DEMAND_APPLY_CHANGE_CHECKER_ID = 'da/3';
+export const DEMAND_APPLY_CHANGE_MODAL_IS_VISIBLE = 'da/4';
+export const DEMAND_APPLY_CHANGE_MODAL_STATUS = 'da/5';
+export const DEMAND_APPLY_CHANGE_TIPS = 'da/6';
+export const DEMAND_CHANGE_FOCUSED_DEMAND_ID = 'da/7';

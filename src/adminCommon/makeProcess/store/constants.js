@@ -1,0 +1,8 @@
+export const MAKE_PROCESS_CHANGE_PROCESS_DATA = "mp/0";
+export const MAKE_PROCESS_CHANGE_CURRENT_PAGE_CODE = "mp/1";
+export const MAKE_PROCESS_CHANGE_TOTAL = "mp/2";
+export const MAKE_PROCESS_CHANGE_MODAL_IS_VISIBLE = "mp/3";
+export const MAKE_PROCESS_CHANGE_CLIENT_ID = "mp/4";
+export const MAKE_PROCESS_CHANGE_CHECKER_ID = "mp/5";
+export const MAKE_PROCESS_CHANGE_CLIENT_INFO = "mp/6";
+export const MAKE_PROCESS_CHANGE_CHECKER_INFO = "mp/7";
