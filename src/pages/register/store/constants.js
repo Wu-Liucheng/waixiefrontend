@@ -1,0 +1,14 @@
+export const CHANGE_IS_FIRST_PAGE = 'register/change_is_first_page';
+export const REGISTER_CHANGE_USERNAME = 'register/change_username';
+export const REGISTER_CHANGE_USERNAME_IS_EXIST = 'register/change_username_is_exist';
+export const REGISTER_CHANGE_PASSWORD = 'register/change_password';
+export const REGISTER_CHANGE_EMAIL = 'register/change_email';
+export const REGISTER_CHANGE_IDENTIFYCODE = 'register/change_identifycode';
+export const REGISTER_CHANGE_NAME = 'register/change_name';
+export const REGISTER_CHANGE_SEX = 'register/change_sex';
+export const REGISTER_CHANGE_PHONE = 'register/change_phone';
+export const REGISTER_CHANGE_QQ = 'register/change_qq_number';
+export const REGISTER_CHANGE_IS_SNET = 'register/change_is_sent';
+export const REGISTER_CHANGE_SEND_IDENTIFY_CODE_INTERVAL = 'register/change_send_identify_code_interval';
+export const REGISTER_RESET = 'register/reset';
+export const REGISTER_CHANGE_RETURN_FLAG = 'register/change_return_flag';

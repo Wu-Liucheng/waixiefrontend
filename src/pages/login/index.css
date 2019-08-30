@@ -1,0 +1,144 @@
+/*
+* @Author:Wuliucheng
+* @Description:Decorate login page
+* @Date:2019-3-21
+* */
+
+@import '~antd/dist/antd.css';
+.stylelogin
+{
+    background-image: url("../../statics/background.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    width:100%;
+
+    margin: 0 0 0 0;
+    padding-top: 160px;
+    overflow: hidden;
+    min-height: 800px;
+
+}
+.loginWrapper
+{
+    background-color: white;
+    width: 440px;
+    height: 338px;
+    margin: 0 auto;
+
+    opacity: 0.9;
+    padding-top: 25px;
+    position: relative;
+}
+.ocms-img
+{
+    width: 103px;
+    height: 52px;
+    background-image: url("../../statics/loginOCMS.png");
+    margin-left: 60px;
+}
+.dengLu {
+    width: 150px;
+    height: 31px;
+    margin-left: 70px;
+
+    font: bold 25px/30px "微软雅黑";
+}
+.showMsg
+{
+    width: 180px;
+    height: 30px;
+    margin-left: 70px;
+    margin-top: 5px;
+    font-size: 15px;
+    color: red;
+    letter-spacing: 2px;
+}
+.in
+{
+    background-color: inherit;
+    display: block;
+    margin-left: 70px;
+    margin-top: 10px;
+    width: 230px;
+    height: 40px;
+    border-style: solid;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom:rgb(0,0,0) 1px solid;
+    border-left-width: 0;
+    font: 25px/40px "微软雅黑";
+    padding-top: 10px;
+    text-indent: 10px;
+    border-radius: 0;
+    transition: none;
+}
+.in:focus{
+    outline: none;
+    border-color: black;
+    box-shadow:none;
+    border-right: 0;
+}
+.in0{
+    background-color: inherit;
+    display: block;
+    margin-left: 70px;
+    margin-top: 10px;
+    width: 230px;
+    height: 40px;
+    border-style: solid;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom:red 1px solid;
+    border-left-width: 0;
+    font: 25px/40px "微软雅黑";
+    padding-top: 10px;
+    text-indent: 10px;
+    border-radius: 0;
+    transition: none;
+}
+.in0:focus{
+    outline: none;
+    border-color: black;
+    box-shadow:none;
+    border-right: 0;
+}
+.tiShi1
+{
+    margin-left: 70px;
+    margin-top: 30px;
+}
+.tiShi2
+{
+    margin-left: 70px;
+    margin-top: 10px;
+    cursor: pointer;
+    color: #52acfc;
+}
+.tiShi1 > span
+{
+    cursor: pointer;
+    color: #52acfc;
+}
+.queRen
+{
+    position: absolute;
+    right:50px;
+    bottom: 30px;
+    width: 108px;
+    height: 40px;
+    font-size: 18px;
+    border-width: 0;
+    border-radius: 2px;
+    background-color: #52acfc;
+    color: white;
+    cursor: pointer;
+}
+p
+{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+a{
+    color: #52acfc;
+    text-decoration: none;
+}

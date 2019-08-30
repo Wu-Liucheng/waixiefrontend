@@ -1,0 +1,25 @@
+.header-content{
+    float: right;
+    margin-right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.admin-search-input{
+    width: 400px;
+    margin-bottom: 20px;
+    margin-right: 100px;
+}
+.admin-button{
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+.ant-carousel .slick-slide {
+    text-align: center;
+    background: #fff;
+    overflow: hidden;
+    height: 700px;
+}
+
+.ant-carousel .slick-slide h3 {
+    color: #364d79;
+}

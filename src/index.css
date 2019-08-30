@@ -1,0 +1,18 @@
+/*
+* @Author:Wuliucheng
+* @Description:Reset the style,to be not affected by the browser
+* @Date:2019-3-20
+* */
+button:focus{
+    outline:none;
+}
+body{
+    margin: 0;
+    padding: 0;
+    /*height: 100%;*/
+    /*overflow: hidden;*/
+    color: black;
+}
+html{
+    height: 100%;
+}

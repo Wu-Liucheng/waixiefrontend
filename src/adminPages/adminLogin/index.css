@@ -1,0 +1,22 @@
+@import '~antd/dist/antd.css';
+.admin-login-wrapper{
+    width: 500px;
+    margin:300px auto 0 auto;
+    border: 1px #c9c9c9 solid;
+    padding: 20px;
+    border-radius: 3px;
+    font-size: 20px;
+}
+.admin-login-wrapper > .admin-login-topic{
+    font-weight: bold;
+    text-align: center;
+}
+#components-form-demo-normal-login .login-form {
+    max-width: 400px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+    float: right;
+}
+#components-form-demo-normal-login .login-form-button {
+    width: 100%;
+}

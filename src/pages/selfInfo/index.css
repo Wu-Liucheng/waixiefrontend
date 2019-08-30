@@ -1,0 +1,154 @@
+.mainDIV1{
+    width: 100%;
+    height: 1240px;
+    background-image: url("../../statics/personalInfo.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+#selfWrapper{
+    width: 1000px;
+    margin: 0 auto;
+}
+.reminder0{
+    margin-top: 70px;
+    width: 500px;
+    height: 26px;
+    margin-bottom: 60px;
+}
+.reminder0 > span {
+    font-size: 20px;
+    color: rgb(205, 213, 229);
+    font-family: 微软雅黑;
+    margin-right: 5px;
+    font-weight: bold;
+}
+.reminder0 >a {
+    font-size: 20px;
+    color: rgb(205, 213, 229);
+    font-family: 微软雅黑;
+    margin-right: 5px;
+    font-weight: bold;
+}
+.reminder0 > .specialSpan{
+    color:white;
+}
+#infoWrapper{
+    width: 100%;
+    height: 540px;
+    background: white;
+    margin-bottom: 350px;
+}
+#infoLeft{
+    width:239px;
+    height: 100%;
+    float: left;
+    background: white;
+    border-right: rgb(199, 207, 209) 1px solid;
+}
+.infoRight{
+    width: 760px;
+    height: 520px;
+    float: right;
+    background: rgb(240, 248, 250);
+    padding-top: 20px;
+    transition: all 2s;
+}
+#touxiang{
+    height: 207px;
+    width: 100%;
+    border-bottom: rgb(199, 207, 209) 1px solid;
+    text-align: center;
+    font-size: 20px;
+}
+.condition0{
+    height: 60px;
+    border-bottom: rgb(199, 207, 209) 1px solid;
+    cursor: pointer;
+    text-align: center;
+    font:18px/60px 微软雅黑;
+}
+.condition1{
+    height: 60px;
+    border-bottom: rgb(199, 207, 209) 1px solid;
+    cursor: pointer;
+    text-align: center;
+    font:18px/60px 微软雅黑;
+    background-color: rgb(240, 248, 250);
+}
+#tupian{
+    width: 68px;
+    height: 68px;
+    background-image: url("../../statics/oneheader.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    margin: 40px auto;
+    border-radius: 28px;
+}
+#infoLeft > a{
+    color: black;
+}
+.leftWrapper{
+    width: 380px;
+    float: left;
+    margin-bottom: 30px;
+}
+.rightWrapper{
+    width: 380px;
+    float: right;
+    margin-bottom: 30px;
+}
+.item0{
+    line-height: 70px;
+    font-size: 17px;
+
+    height: 70px;
+    border-left: 0;
+    border-right: 0;
+    border-top:0;
+    border-bottom: rgb(199, 207, 209) 1px solid;
+
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(74, 82, 84);
+}
+Input:focus{
+    outline: none;
+}
+.input0{
+    border: 0;
+    background: none;
+    text-indent: 10px;
+    font-size: 17px;
+    width: 200px;
+}
+.save0{
+    display: block;
+    border:0;
+    padding:0;
+    border-radius: 5px;
+    width: 106px;
+    height: 34px;
+    margin: 30px auto;
+    background-color: rgb(51, 167, 216);
+    color: rgb(240, 248, 250);
+    cursor: pointer;
+}
+#touxiang1{
+    width: 110px;
+    height: 110px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 25px;
+    background-image: url("../../statics/addheader.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.self-group{
+    height: 32px;
+    background-color:#f0f8fa;
+    margin-left: 10px;
+}
+.self-group > .ant-radio-wrapper{
+    font-size: 17px;
+}

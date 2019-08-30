@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "data": {
+    "selfInfo": {
+      "isBaseInfoPage": true,
+      "name": "吴留承",
+      "email": "simahui123@gmail.com",
+      "username": "Gabriel",
+      "qq": "2502159904",
+      "employYears": "0.5年",
+      "phone": "13032503165",
+      "goodAt": "摸鱼、吃饭",
+      "estimateLevel": "SSS级",
+      "planDate": "2020-04-20",
+      "communicateDate": "2019-05-20",
+      "isBeingUsed": false,
+      "communicatePerson": "独孤求败",
+      "employNumber": "H12DER674NLKL",
+      "idealSalary": "1000",
+      "idNumber": "320381199807261819",
+      "birth": "1998-06-15",
+      "degree": "本科",
+      "priceUnit": "元/月",
+      "school": "常州工学院",
+      "sex": true,
+      "location": "江苏省常州市新北区",
+      "otherInfo": "没有什么别的要说的。。。"
+    }
+  }
+}

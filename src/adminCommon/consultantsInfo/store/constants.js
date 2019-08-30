@@ -1,0 +1,16 @@
+export const ADMIN_MAIN_CHANGE_CONSULTANT_DATA = 'admin_main/change_consultant_data';
+export const ADMIN_MAIN_CHANGE_CONSULTANT_DATA_TOTAL = 'admin_main/change_consultant_data_total';
+export const ADMIN_MAIN_CHANGE_CONSULTANT_DATA_PAGE_CODE = 'admin/change_consultant_data_page_code';
+export const ADMIN_CONSULTANT_INFO_MODAL_IS_VISIBLE = 'consultant_info/modal_is_visible';
+export const CHANGE_ID = 'admin_consultant_info/change_id';
+export const CHANGE_EMAIL = 'admin_consultant_info/change_email';
+export const CHANGE_NAME = 'admin_consultant_info/change_name';
+export const CHANGE_MOBILE = 'admin_consultant_info/change_mobile';
+export const CHANGE_EMPLOY_YEARS = 'admin_consultant_info/change_employ_years';
+export const CHANGE_ESTIMATE_LEVEL = 'admin_consultant_info/change_estimate_level';
+export const CHANGE_EMPLOY_NUMBER = 'admin_consultant_info/change_employ_number';
+export const CHANGE_PLAN_DATE = 'admin_consultant_info/change_plan_date';
+export const CHANGE_COMMUNICATE_DATE = 'admin_consultant_info/change_communicate_date';
+export const CHANGE_COMMUNICATE_PERSON = 'admin_consultant_info/change_communicate_person';
+export const CHANGE_LOCATION = 'admin_conslutant_info/change_location';
+export const CHANGE_OTHER_INFO = 'admin_consultant_info/change_other_info';

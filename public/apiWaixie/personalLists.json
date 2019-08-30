@@ -1,0 +1,55 @@
+{
+  "success": true,
+  "data": {
+    "lists": [{
+      "id": 9,
+      "jobName": "SAP PP方案顾问",
+      "salary": 2000,
+      "priceUnit": "元/天",
+      "location": "江苏 南京",
+      "duration": "4-6月",
+      "cycle": "10个月",
+      "isBaozhusu": true,
+      "numSignUp": 7,
+      "releaseTime": "2018年6月20日",
+      "projectName": "WX101项目"
+    },{
+      "id": 10,
+      "jobName": "物理学家曲率引擎方向",
+      "salary": 5000,
+      "priceUnit": "元/天",
+      "location": "广东 深圳",
+      "duration": "8-9月",
+      "cycle": "10个月",
+      "isBaozhusu": false,
+      "numSignUp": 1,
+      "releaseTime": "2019年5月4日",
+      "projectName": "SW23星环号项目"
+    },{
+      "id": 11,
+      "jobName": "面壁者执剑人",
+      "salary": 200,
+      "priceUnit": "元/小时",
+      "location": "中国 北京",
+      "duration": "2-3年",
+      "cycle": "10个月",
+      "isBaozhusu": true,
+      "numSignUp": 0,
+      "releaseTime": "2018年12月31日",
+      "projectName": "ST面壁计划"
+    },{
+      "id": 12,
+      "jobName": "系统工程师",
+      "salary": 2000,
+      "priceUnit": "元/天",
+      "location": "江苏 常州",
+      "duration": "4-6月",
+      "cycle": "10个月",
+      "isBaozhusu": false,
+      "numSignUp": 25,
+      "releaseTime": "2006年6月20日",
+      "projectName": "Java Web项目"
+    }],
+    "totalPages": 9
+  }
+}

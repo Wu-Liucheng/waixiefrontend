@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "info": {
+    "id": 1,
+    "jobName": "SAP PP方案顾问",
+    "salary": 2000,
+    "priceUnit": "元/天",
+    "location": "江苏 南京",
+    "duration": "4-6月",
+    "cycle": "10个月",
+    "isBaozhusu": true,
+    "isSignUp": false,
+    "numSignUp": 7,
+    "releaseTime": "2018年6月20日 13:23:23",
+    "company": "上海汉得信息技术股份有限公司",
+    "projectName": "WX101项目",
+    "description": "1.SAP MM外部顾问5年以上工作经验；至少独立完成6个FullCycle实施项目；\n2.思维清晰敏捷，逻辑分析能力强；具有分析、解决问题的能力；\n3.掌握SAP-MM模块系统功能，熟悉了解生产订单相关的收发料业务和系统操作；\n4.具备一定的项目管理经验，以及较强的文档编写和管理能力。",
+    "companyIntro": "上海汉得信息技术有限公司(HAND Enterprise Solution Co.,Ltd.SZ:300170) 的核心团队于1996年起从事国内专业的ERP实施服务，公司设立于2002年7月，是国内成立最早、规模最 大、经验最丰富的IT咨询服务公司。"
+  }
+}
