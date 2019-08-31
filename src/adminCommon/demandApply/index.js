@@ -38,6 +38,7 @@ class DemandApply extends PureComponent{
             tips,changeTips,
             updateDemandStatusByChecker,
             focusedDemandId,changeFocusedDemandId,
+            getDemandApply,
         } = this.props;
 
         const applyColumns = [{
@@ -127,7 +128,8 @@ class DemandApply extends PureComponent{
                     <Button className="admin-button">需求关闭</Button>
                     <Table columns={applyColumns}
                            dataSource={demandApplyData.toJS()}
-                           pagination={{showQuickJumper:true,pageSize:6,defaultCurrent:1,total:total,current:currentPageCode}} />
+                           pagination={{showQuickJumper:true,pageSize:6,defaultCurrent:1,total:total,current:currentPageCode,
+                           onChange:(code) => {getDemandApply(checkerId,currentPageCode)}}} />
                 </div>
                 <ModalDemand/>
                 <Modal
@@ -185,6 +187,7 @@ const mapDispatch = (dispatch) => ({
     updateDemandStatusByChecker(isPassed,demandId,checkerId,tips,pageCode){
         dispatch(actionCreator.updateDemandStatusByChecker(isPassed,demandId,checkerId,tips,pageCode))
     },
+    getDemandApply(checkerId,pageCode){dispatch(actionCreator.getDemandApply(checkerId,pageCode))},
 });
 export default connect(mapState,mapDispatch)(DemandApply);
 

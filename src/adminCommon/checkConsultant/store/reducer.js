@@ -4,6 +4,8 @@ const defaultState = fromJS({
     signUpData:[],
     currentPageCode:1,
     total:0,
+
+    checkerId:null,
 });
 export default (state = defaultState,action) => {
     switch (action.type) {
@@ -13,6 +15,8 @@ export default (state = defaultState,action) => {
             return state.set("currentPageCode",action.value);
         case constants.CHANGE_TOTAL:
             return state.set("total",action.value);
+        case constants.CHANGE_CHECKER_ID:
+            return state.set("checkerId",action.value);
         default:
             return state;
     }

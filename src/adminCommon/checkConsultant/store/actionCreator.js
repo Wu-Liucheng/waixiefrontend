@@ -15,3 +15,48 @@ export const changeTotal = (total) => ({
     type:constants.CHANGE_TOTAL,
     value:total,
 });
+
+export const changeCheckerId = (id) => ({
+    type:constants.CHANGE_CHECKER_ID,
+    value:id,
+});
+
+export const setCheckerId = (username) => {
+    return (dispatch)=>{
+        axios.get(config.DOMAIN_NAME+'/get-checker-id',{params:{"loginName":username}})
+            .then((res)=>{
+                if(res.data === null){
+                    message.error("权限不足！");
+                }
+                else {
+                    dispatch(changeCheckerId(res.data));
+                    dispatch(getPageData(res.data,1));
+                }
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+    }
+};
+
+export const getPageData = (checkerId,pageCode) => {
+    return (dispatch) => {
+        let param = new URLSearchParams();
+        param.append("checkerId",checkerId);
+        param.append("pageCode",pageCode);
+        axios.post(config.DOMAIN_NAME+'/get-sign-up-data',param)
+            .then((res) => {
+                if(res.data.success){
+                    dispatch(changeSignUpData(res.data.data));
+                    dispatch(changeCurrentPageCode(pageCode));
+                    dispatch(changeTotal(res.data.total));
+                }
+                else {
+                    message.error("获取失败！");
+                }
+            })
+            .catch((err) =>{
+                console.log(err);
+            })
+    }
+} ;

@@ -18,10 +18,24 @@ const Search = Input.Search;
 class CheckConsultant extends PureComponent{
 
     componentDidMount() {
-
+        const {role,username,setCheckerId} = this.props;
+        if(role === 2){
+            setCheckerId(username);
+        }
+        else {
+            message.error("您不是外协专员，此模块无权查看。");
+        }
     }
 
     render() {
+
+        const {
+            checkerId,
+            signUpData,
+            currentPageCode,
+            total,
+            getPageData,
+        } = this.props;
 
         return (
             <Content style={{ margin: '0 16px' }}>
@@ -39,8 +53,10 @@ class CheckConsultant extends PureComponent{
                     />
                     <Button className="admin-button">更多筛选</Button>
                     <Table columns={examineColumns}
-                           dataSource={examineData}
-                           pagination={{showQuickJumper:true,pageSize:6,defaultCurrent:1,total:11*6}} />
+                           dataSource={signUpData.toJS()}
+                           pagination={{showQuickJumper:true,pageSize:6,defaultCurrent:1,total:total,current:currentPageCode,onChange:(code)=>{
+                               getPageData(checkerId,currentPageCode);
+                               }}} />
                 </div>
             </Content>
         );
@@ -48,10 +64,17 @@ class CheckConsultant extends PureComponent{
 
 }
 const mapState = (state) => ({
+    role:state.getIn(['adminLogin','role']),
+    username:state.getIn(['adminLogin','username']),
 
+    signUpData: state.getIn(['checkConsultant','signUpData']),
+    currentPageCode: state.getIn(['checkConsultant','currentPageCode']),
+    total: state.getIn(['checkConsultant','total']),
+    checkerId:state.getIn(['checkConsultant','checkerId']),
 });
 const mapDispatch = (dispatch) => ({
-
+    setCheckerId(useranme){dispatch(actionCreator.setCheckerId(useranme))},
+    getPageData(checkerId,pageCode){dispatch(actionCreator.getPageData(checkerId,pageCode))},
 });
 export default connect(mapState,mapDispatch)(CheckConsultant);
 const examineColumns = [{
