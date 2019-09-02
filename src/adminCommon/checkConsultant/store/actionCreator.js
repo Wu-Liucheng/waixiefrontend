@@ -21,6 +21,17 @@ export const changeCheckerId = (id) => ({
     value:id,
 });
 
+export const changeConsultantInfoIsVisible = (val) => ({
+    type:constants.CHANGE_CONSULTANT_INFO_IS_VISIBLE,
+    value:val,
+});
+
+export const changeConsultantInfo = (info) => ({
+    type:constants.CHANGE_CONSULTANT_INFO,
+    value:info,
+});
+
+
 export const setCheckerId = (username) => {
     return (dispatch)=>{
         axios.get(config.DOMAIN_NAME+'/get-checker-id',{params:{"loginName":username}})
@@ -60,3 +71,18 @@ export const getPageData = (checkerId,pageCode) => {
             })
     }
 } ;
+
+export const getConsultantInfo = (id) => {
+    return (dispatch) => {
+        let param = new URLSearchParams();
+        param.append("resumeId",id);
+        axios.post(config.DOMAIN_NAME+'/resume-for-checker',param)
+            .then((res) => {
+                console.log(res.data);
+                dispatch(changeConsultantInfo(res.data));
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+};

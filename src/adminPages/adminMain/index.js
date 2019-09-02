@@ -7,7 +7,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from "react-redux";
 import './index.css';
-import {Input, Button, Layout, Menu, Breadcrumb, Icon, Table, Skeleton, Carousel,} from 'antd';
+import {Layout, Menu, Breadcrumb, Icon, Skeleton, Carousel,} from 'antd';
 import {actionCreator} from "./store";
 import ConsultantsManager from '../../adminCommon/consultantsInfo/index';
 import ClientInfo from '../../adminCommon/clientsInfo/index';

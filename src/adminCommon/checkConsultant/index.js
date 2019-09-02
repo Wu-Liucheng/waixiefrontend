@@ -5,7 +5,7 @@ import {
     Button,
     Table,
     Breadcrumb, Tooltip,
-    message, Input, Modal,
+    message, Input, Modal,Icon,Drawer,
 } from 'antd';
 import {actionCreator} from "./store";
 import {actionCreator as modalDemandActionCreator} from "../modalDemand/store";
@@ -35,6 +35,7 @@ class CheckConsultant extends PureComponent{
             currentPageCode,
             total,
             getPageData,
+            consultantInfoIsVisible,changeConsultantInfoIsVisible,
         } = this.props;
 
         const signUpInfoColumns = [{
@@ -90,14 +91,25 @@ class CheckConsultant extends PureComponent{
             key: 'action',
             render: (text,record) => (
                 <span>
-                    <Button onClick={()=>{
-                    }}>查看顾问信息</Button>&nbsp;
-                    <Tooltip title="详细顾问信息(简历)..."><Button type="primary" onClick={()=>{
+                    <Tooltip title="详细顾问信息(简历)...">
+                        <Button onClick={()=>{
+                            changeConsultantInfoIsVisible(true);
+                        }}>顾问信息</Button>
+                    </Tooltip>
+                    &nbsp;&nbsp;
+                    <Tooltip title="详细需求信息...">
+                        <Button type="primary" onClick={()=>{
 
-                    }}>需求详情</Button></Tooltip>
-                    <Tooltip title="审核驳回，拒绝通"><Button type="danger" onClick={()=>{
+                    }}>需求详情</Button>
+                    </Tooltip>
+                    &nbsp;&nbsp;
+                    <Tooltip title="通过审核，使用该顾问"><Button shape="circle" onClick={()=>{
 
-                    }}>拒绝</Button></Tooltip>
+                    }}><Icon type="check" /></Button></Tooltip>
+                    &nbsp;&nbsp;
+                    <Tooltip title="审核不通过，不使用该顾问">
+                        <Button type="danger" shape="circle" ><Icon type="close" /></Button>
+                    </Tooltip>
                 </span>
             ),
         }];
@@ -122,6 +134,18 @@ class CheckConsultant extends PureComponent{
                            pagination={{showQuickJumper:true,pageSize:6,defaultCurrent:1,total:total,current:currentPageCode,onChange:(code)=>{
                                getPageData(checkerId,currentPageCode);
                                }}} />
+                    <Drawer
+                        title="外协顾问信息"
+                        placement="right"
+                        closable={false}
+                        width = {500}
+                        onClose={()=>changeConsultantInfoIsVisible(false)}
+                        visible={consultantInfoIsVisible}
+                    >
+                        <p>Some contents...</p>
+                        <p>Some contents...</p>
+                        <p>Some contents...</p>
+                    </Drawer>
                 </div>
             </Content>
         );
@@ -136,12 +160,15 @@ const mapState = (state) => ({
     currentPageCode: state.getIn(['checkConsultant','currentPageCode']),
     total: state.getIn(['checkConsultant','total']),
     checkerId:state.getIn(['checkConsultant','checkerId']),
+    consultantInfoIsVisible:state.getIn(['checkConsultant','consultantInfoIsVisible']),
 });
 const mapDispatch = (dispatch) => ({
     setCheckerId(useranme){dispatch(actionCreator.setCheckerId(useranme))},
     getPageData(checkerId,pageCode){dispatch(actionCreator.getPageData(checkerId,pageCode))},
+    changeConsultantInfoIsVisible(val){dispatch(actionCreator.changeConsultantInfoIsVisible(val))},
 });
 export default connect(mapState,mapDispatch)(CheckConsultant);
+/*
 const examineColumns = [{
     title:'序号',
     dataIndex:'number',
@@ -292,3 +319,4 @@ const examineData = [{
     location:'江苏 常州',
     examineStatus:'创建',
 }];
+*/

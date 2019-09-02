@@ -6,6 +6,8 @@ const defaultState = fromJS({
     total:0,
 
     checkerId:null,
+    consultantInfoIsVisible:false,
+    constantInfo:null,
 });
 export default (state = defaultState,action) => {
     switch (action.type) {
@@ -17,6 +19,10 @@ export default (state = defaultState,action) => {
             return state.set("total",action.value);
         case constants.CHANGE_CHECKER_ID:
             return state.set("checkerId",action.value);
+        case constants.CHANGE_CONSULTANT_INFO_IS_VISIBLE:
+            return state.set("consultantInfoIsVisible",action.value);
+        case constants.CHANGE_CONSULTANT_INFO:
+            return state.set("consultantInfo",action.value);
         default:
             return state;
     }
