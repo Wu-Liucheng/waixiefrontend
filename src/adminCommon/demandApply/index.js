@@ -50,7 +50,7 @@ class DemandApply extends PureComponent{
             dataIndex:'number',
             key:'number',
         },{
-            title:'项目名称',
+            title:'需求名称',
             dataIndex:'name',
             key:'name',
         },{
