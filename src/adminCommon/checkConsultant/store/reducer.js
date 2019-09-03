@@ -7,7 +7,7 @@ const defaultState = fromJS({
 
     checkerId:null,
     consultantInfoIsVisible:false,
-    constantInfo:null,
+    consultantInfo:{},
 });
 export default (state = defaultState,action) => {
     switch (action.type) {

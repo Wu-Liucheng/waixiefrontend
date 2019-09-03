@@ -35,7 +35,7 @@ class SelfInfo extends PureComponent{
             estimateLevel,selfChangeEstimate,
             planDate,selfChangePlanDate,
             communicateDate,selfChangeCommunicateDate,
-            isBeingUsed,selfChangeIsBeingUsed,
+            isBeingUsed,
             communicatePerson,selfChangeCommunicatePerson,
             employNumber,selfChangeEmployNumber,
             idealSalary,selfChangeIdealSalary,
@@ -127,7 +127,7 @@ class SelfInfo extends PureComponent{
                                                             value={isBeingUsed}
                                                             onChange={selfChangeIsBeingUsed}
                                             />*/}
-                                                <RadioGroup value={isBeingUsed} onChange={selfChangeIsBeingUsed} className="self-group">
+                                                <RadioGroup value={isBeingUsed} className="self-group">
                                                     <Radio value={true}>在职</Radio>
                                                     <Radio value={false}>空闲</Radio>
                                                 </RadioGroup>

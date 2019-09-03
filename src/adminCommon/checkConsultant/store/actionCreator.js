@@ -28,7 +28,7 @@ export const changeConsultantInfoIsVisible = (val) => ({
 
 export const changeConsultantInfo = (info) => ({
     type:constants.CHANGE_CONSULTANT_INFO,
-    value:info,
+    value:fromJS(info),
 });
 
 
@@ -78,7 +78,6 @@ export const getConsultantInfo = (id) => {
         param.append("resumeId",id);
         axios.post(config.DOMAIN_NAME+'/resume-for-checker',param)
             .then((res) => {
-                console.log(res.data);
                 dispatch(changeConsultantInfo(res.data));
             })
             .catch((err) => {
