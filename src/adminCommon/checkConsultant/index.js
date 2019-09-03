@@ -36,6 +36,7 @@ class CheckConsultant extends PureComponent{
             total,
             getPageData,
             consultantInfoIsVisible,changeConsultantInfoIsVisible,
+            getConsultantInfo,
         } = this.props;
 
         const signUpInfoColumns = [{
@@ -94,6 +95,7 @@ class CheckConsultant extends PureComponent{
                     <Tooltip title="详细顾问信息(简历)...">
                         <Button onClick={()=>{
                             changeConsultantInfoIsVisible(true);
+                            getConsultantInfo(record.userId);
                         }}>顾问信息</Button>
                     </Tooltip>
                     &nbsp;&nbsp;
@@ -146,6 +148,16 @@ class CheckConsultant extends PureComponent{
                         <p>Some contents...</p>
                         <p>Some contents...</p>
                     </Drawer>
+                    <Drawer
+                        title="需求信息"
+                        placement="right"
+                        closable={false}
+                        width={400}
+                        onClose={()=>{}}
+                        visible={false}
+                    >
+                        blablabla...
+                    </Drawer>
                 </div>
             </Content>
         );
@@ -166,6 +178,7 @@ const mapDispatch = (dispatch) => ({
     setCheckerId(useranme){dispatch(actionCreator.setCheckerId(useranme))},
     getPageData(checkerId,pageCode){dispatch(actionCreator.getPageData(checkerId,pageCode))},
     changeConsultantInfoIsVisible(val){dispatch(actionCreator.changeConsultantInfoIsVisible(val))},
+    getConsultantInfo(id){dispatch(actionCreator.getConsultantInfo(id))},
 });
 export default connect(mapState,mapDispatch)(CheckConsultant);
 /*
