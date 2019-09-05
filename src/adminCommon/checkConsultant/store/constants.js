@@ -4,3 +4,7 @@ export const CHANGE_TOTAL = "cc/2";
 export const CHANGE_CHECKER_ID = "cc/3";
 export const CHANGE_CONSULTANT_INFO_IS_VISIBLE = "cc/4";
 export const CHANGE_CONSULTANT_INFO = "cc/5";
+export const CHANGE_MODAL_IS_VISIBLE = "cc/6";
+export const CHANGE_MODAL_STATUS = "cc/7";
+export const CHANGE_MODAL_CONTENT = "cc/8";
+export const CHANGE_FOCUS_RECORD = "cc/9";

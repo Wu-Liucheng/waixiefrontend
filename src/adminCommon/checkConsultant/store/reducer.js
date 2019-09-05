@@ -8,6 +8,11 @@ const defaultState = fromJS({
     checkerId:null,
     consultantInfoIsVisible:false,
     consultantInfo:{},
+
+    mdlIsVisible:false,
+    mdlStatus:true,
+    mdlContent:"",
+    focusRecord:null,
 });
 export default (state = defaultState,action) => {
     switch (action.type) {
@@ -23,6 +28,14 @@ export default (state = defaultState,action) => {
             return state.set("consultantInfoIsVisible",action.value);
         case constants.CHANGE_CONSULTANT_INFO:
             return state.set("consultantInfo",action.value);
+        case constants.CHANGE_MODAL_IS_VISIBLE:
+            return state.set("mdlIsVisible",action.value);
+        case constants.CHANGE_MODAL_STATUS:
+            return state.set("mdlStatus",action.value);
+        case constants.CHANGE_MODAL_CONTENT:
+            return state.set("mdlContent",action.value);
+        case constants.CHANGE_FOCUS_RECORD:
+            return state.set("focusRecord",action.value);
         default:
             return state;
     }

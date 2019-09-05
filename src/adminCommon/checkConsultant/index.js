@@ -5,7 +5,7 @@ import {
     Button,
     Table,
     Breadcrumb, Tooltip,
-    message,Icon,Drawer,Divider,Tag,Card,Empty,
+    message,Icon,Drawer,Divider,Tag,Card,Empty,Modal,Input
 } from 'antd';
 import {actionCreator} from "./store";
 import {actionCreator as modalDemandActionCreator} from "../modalDemand/store";
@@ -13,6 +13,7 @@ import ModalDemand from "../modalDemand";
 const {
     Content
 } = Layout;
+const { TextArea } = Input;
 class CheckConsultant extends PureComponent{
 
     componentDidMount() {
@@ -38,6 +39,11 @@ class CheckConsultant extends PureComponent{
             consultantInfo,
 
             getDemandInfo,
+            modalIsVisible,changeModalIsVisible,
+            modalStatus,changeModalStatus,
+            modalContent,changeModalContent,
+            focusRecord,changeFocusRecord,
+            postCheckInfo ,
         } = this.props;
 
         const signUpInfoColumns = [{
@@ -107,11 +113,17 @@ class CheckConsultant extends PureComponent{
                     </Tooltip>
                     &nbsp;&nbsp;
                     <Tooltip title="通过审核，使用该顾问"><Button shape="circle" onClick={()=>{
-
+                        changeModalStatus(true);
+                        changeFocusRecord(record);
+                        changeModalIsVisible(true);
                     }}><Icon type="check" /></Button></Tooltip>
                     &nbsp;&nbsp;
                     <Tooltip title="审核不通过，不使用该顾问">
-                        <Button type="danger" shape="circle" ><Icon type="close" /></Button>
+                        <Button type="danger" shape="circle" onClick={()=>{
+                            changeModalStatus(false);
+                            changeFocusRecord(record);
+                            changeModalIsVisible(true);
+                        }}><Icon type="close" /></Button>
                     </Tooltip>
                 </span>
             ),
@@ -199,6 +211,24 @@ class CheckConsultant extends PureComponent{
 
                     </Drawer>*/}
                     <ModalDemand/>
+                    <Modal onOk={()=>{
+                        //console.log(focusRecord);
+                        postCheckInfo(modalStatus,focusRecord.userId,focusRecord.username,
+                            focusRecord.demandId,focusRecord.objectId,checkerId,modalContent,currentPageCode)
+                    }}
+                           onCancel={()=>{
+                               changeModalIsVisible(false);
+                               changeModalContent(null);
+                           }}
+                           title={modalStatus?"发送任用通知":"驳回建议"}
+                           visible={modalIsVisible}
+                           okText="确定"
+                           cancelText="取消"
+                           closable={false}
+                    >
+                        <TextArea rows={3} value={modalContent} onChange={changeModalContent}/>
+
+                    </Modal>
                 </div>
             </Content>
         );
@@ -216,6 +246,10 @@ const mapState = (state) => ({
     consultantInfoIsVisible:state.getIn(['checkConsultant','consultantInfoIsVisible']),
 
     consultantInfo:state.getIn(['checkConsultant','consultantInfo']),
+    modalIsVisible:state.getIn(['checkConsultant','mdlIsVisible']),
+    modalStatus:state.getIn(['checkConsultant','mdlStatus']),
+    modalContent:state.getIn(['checkConsultant','mdlContent']),
+    focusRecord:state.getIn(['checkConsultant','focusRecord']),
 });
 const mapDispatch = (dispatch) => ({
     setCheckerId(useranme){dispatch(actionCreator.setCheckerId(useranme))},
@@ -223,10 +257,23 @@ const mapDispatch = (dispatch) => ({
     changeConsultantInfoIsVisible(val){dispatch(actionCreator.changeConsultantInfoIsVisible(val))},
     getConsultantInfo(id){dispatch(actionCreator.getConsultantInfo(id))},
     getDemandInfo(id){dispatch(modalDemandActionCreator.showDemandInfo(id))},
+    changeModalIsVisible(val){dispatch(actionCreator.changeModalIsVisible(val))},
+    changeModalStatus(val){dispatch(actionCreator.changeModalStatus(val))},
+    changeModalContent(e){
+        if(e===null){
+            dispatch(actionCreator.changeModalContent(""))
+        }
+        else {
+            dispatch(actionCreator.changeModalContent(e.target.value))
+        }},
+    changeFocusRecord(record){dispatch(actionCreator.changeFocusRecord(record))},
+    postCheckInfo(isPassed,userId,username,demandId,objectId,checkerId,content,pageCode){dispatch(
+        actionCreator.postCheckInfo(isPassed,userId,username,demandId,objectId,checkerId,content,pageCode)
+    )},
 
-/*
-    closeDemandInfo(){dispatch(modalDemandActionCreator.modalDemandChangeIsVisible(false))},
-*/
+    /*
+        closeDemandInfo(){dispatch(modalDemandActionCreator.modalDemandChangeIsVisible(false))},
+    */
 });
 export default connect(mapState,mapDispatch)(CheckConsultant);
 /*

@@ -31,6 +31,25 @@ export const changeConsultantInfo = (info) => ({
     value:fromJS(info),
 });
 
+export const changeModalIsVisible = (val) => ({
+    type:constants.CHANGE_MODAL_IS_VISIBLE,
+    value:val,
+});
+
+export const changeModalStatus = (val) => ({
+    type:constants.CHANGE_MODAL_STATUS,
+    value:val,
+});
+
+export const changeModalContent = (content) => ({
+    type:constants.CHANGE_MODAL_CONTENT,
+    value:content,
+});
+
+export const changeFocusRecord = (record) => ({
+    type:constants.CHANGE_FOCUS_RECORD,
+    value:record,
+});
 
 export const setCheckerId = (username) => {
     return (dispatch)=>{
@@ -81,6 +100,34 @@ export const getConsultantInfo = (id) => {
                 dispatch(changeConsultantInfo(res.data));
             })
             .catch((err) => {
+                console.log(err);
+            })
+    }
+};
+
+export const postCheckInfo = (isPassed,userId,username,demandId,objectId,checkerId,content,pageCode) => {
+    return (dispatch) => {
+        let param = new URLSearchParams();
+        param.append("isPassed",isPassed);
+        param.append("userId",userId);
+        param.append("username",username);
+        param.append("demandId",demandId);
+        param.append("objectId",objectId);
+        param.append("checkerId",checkerId);
+        param.append("content",content);
+        axios.post(config.DOMAIN_NAME+'/check-action',param)
+            .then((res) => {
+                if(res.data.data){
+                    message.info("操作成功");
+                    dispatch(changeModalIsVisible(false));
+                    dispatch(getPageData(checkerId,pageCode));
+                    dispatch(changeModalContent(""));
+                }
+                else {
+                    message.error(res.data.info);
+                }
+            })
+            .catch((err)=>{
                 console.log(err);
             })
     }
