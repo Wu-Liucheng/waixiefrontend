@@ -129,7 +129,7 @@ class DemandApply extends PureComponent{
                     <Table columns={applyColumns}
                            dataSource={demandApplyData.toJS()}
                            pagination={{showQuickJumper:true,pageSize:6,defaultCurrent:1,total:total,current:currentPageCode,
-                           onChange:(code) => {getDemandApply(checkerId,currentPageCode)}}} />
+                           onChange:(code) => {getDemandApply(checkerId,code)}}} />
                 </div>
                 <ModalDemand/>
                 <Modal

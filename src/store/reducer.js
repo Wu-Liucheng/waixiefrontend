@@ -22,6 +22,7 @@ import {reducer as modalDemandReducer} from '../adminCommon/modalDemand/store';
 import {reducer as makeProcessReducer} from '../adminCommon/makeProcess/store';
 import {reducer as demandApplyReducer} from '../adminCommon/demandApply/store';
 import {reducer as checkConsultantReducer} from '../adminCommon/checkConsultant/store';
+import {reducer as closeDemandReducer} from '../adminCommon/closeDemand/store';
 export default combineReducers({
     login:loginReducer,
     register:registerReducer,
@@ -41,4 +42,5 @@ export default combineReducers({
     makeProcess:makeProcessReducer,
     demandApply:demandApplyReducer,
     checkConsultant:checkConsultantReducer,
+    closeDemand:closeDemandReducer,
 })

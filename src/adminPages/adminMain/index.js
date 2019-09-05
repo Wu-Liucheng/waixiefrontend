@@ -15,6 +15,7 @@ import ProjectInfo from '../../adminCommon/projectInfo/index';
 import MakeProcess from '../../adminCommon/makeProcess/index';
 import DemandApply from '../../adminCommon/demandApply/index';
 import CheckConsultant from '../../adminCommon/checkConsultant/index';
+import CloseDemand from '../../adminCommon/closeDemand/index';
 import {actionCreator as consultantsInfoActionCreator} from '../../adminCommon/consultantsInfo/store';
 const { SubMenu } = Menu;
 const {
@@ -81,9 +82,8 @@ class adminMain extends PureComponent {
                             key="sub3"
                             title={<span><Icon type="setting" /><span>系统设置</span></span>}
                         >
-                            <Menu.Item key="9"><Icon type="clock-circle" />数据字典设置</Menu.Item>
                             <Menu.Item key="10"><Icon type="link" />流程定制</Menu.Item>
-                            <Menu.Item key="11"><Icon type="upload" />批量上传</Menu.Item>
+                            <Menu.Item key="11"><Icon type="upload" />上传</Menu.Item>
                         </SubMenu>
                         <Menu.Item key="12">
                             <Icon type="file" />
@@ -125,12 +125,7 @@ class adminMain extends PureComponent {
                                 case "6":
                                     return <CheckConsultant/>;
                                 case "7":
-                                    return <Content style={{ margin: '0 16px' }}>
-                                        <Breadcrumb style={{ margin: '16px 0' }}>
-                                            <Breadcrumb.Item>外协需求</Breadcrumb.Item>
-                                            <Breadcrumb.Item>外协需求关闭</Breadcrumb.Item>
-                                        </Breadcrumb>
-                                    </Content>;
+                                    return <CloseDemand/>;
                                 case "8":
                                     return <Content style={{ margin: '0 16px' }}>
                                         <Breadcrumb style={{ margin: '16px 0' }}>

@@ -140,7 +140,7 @@ class CheckConsultant extends PureComponent{
                     <Table columns={signUpInfoColumns}
                            dataSource={signUpData.toJS()}
                            pagination={{showQuickJumper:true,pageSize:6,defaultCurrent:1,total:total,current:currentPageCode,onChange:(code)=>{
-                               getPageData(checkerId,currentPageCode);
+                               getPageData(checkerId,code);
                                }}} />
                     <Drawer
                         title="外协顾问信息"
