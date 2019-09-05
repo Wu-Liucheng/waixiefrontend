@@ -16,6 +16,7 @@ import MakeProcess from '../../adminCommon/makeProcess/index';
 import DemandApply from '../../adminCommon/demandApply/index';
 import CheckConsultant from '../../adminCommon/checkConsultant/index';
 import CloseDemand from '../../adminCommon/closeDemand/index';
+import ChangeConsultantStatus from '../../adminCommon/changeConsultantStatus/index';
 import {actionCreator as consultantsInfoActionCreator} from '../../adminCommon/consultantsInfo/store';
 const { SubMenu } = Menu;
 const {
@@ -127,12 +128,7 @@ class adminMain extends PureComponent {
                                 case "7":
                                     return <CloseDemand/>;
                                 case "8":
-                                    return <Content style={{ margin: '0 16px' }}>
-                                        <Breadcrumb style={{ margin: '16px 0' }}>
-                                            <Breadcrumb.Item>外协需求</Breadcrumb.Item>
-                                            <Breadcrumb.Item>外协顾问状态修改</Breadcrumb.Item>
-                                        </Breadcrumb>
-                                    </Content>;
+                                    return <ChangeConsultantStatus/>;
                                 case "9":
                                     return <Content style={{ margin: '0 16px' }}>
                                         <Breadcrumb style={{ margin: '16px 0' }}>

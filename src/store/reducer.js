@@ -23,6 +23,7 @@ import {reducer as makeProcessReducer} from '../adminCommon/makeProcess/store';
 import {reducer as demandApplyReducer} from '../adminCommon/demandApply/store';
 import {reducer as checkConsultantReducer} from '../adminCommon/checkConsultant/store';
 import {reducer as closeDemandReducer} from '../adminCommon/closeDemand/store';
+import {reducer as changeConsultantStatusReducer} from '../adminCommon/changeConsultantStatus/store';
 export default combineReducers({
     login:loginReducer,
     register:registerReducer,
@@ -43,4 +44,5 @@ export default combineReducers({
     demandApply:demandApplyReducer,
     checkConsultant:checkConsultantReducer,
     closeDemand:closeDemandReducer,
+    changeConsultantStatus:changeConsultantStatusReducer,
 })
