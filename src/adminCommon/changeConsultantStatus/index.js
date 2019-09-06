@@ -33,58 +33,29 @@ class ChangeConsultantStatus extends PureComponent{
 
         const columns = [{
             title:'序号',
-            dataIndex:'id',
-            key:'id',
-        },{
-            title:'外协申请号',
             dataIndex:'number',
             key:'number',
         },{
+            title:'顾问姓名',
+            dataIndex:'username',
+            key:'username',
+        },{
             title:'需求名称',
-            dataIndex:'name',
-            key:'name',
-        },{
-            title:'模块',
-            dataIndex:'modular',
-            key:'modular',
-        },{
-            title:'年限',
-            dataIndex:'employTime',
-            key:'employTime',
-        },{
-            title:'审核状态',
-            dataIndex:'status',
-            key:'status',
-        },{
-            title:'价格',
-            dataIndex:'price',
-            key:'price',
-        },{
-            title:'价格单位',
-            dataIndex:'priceUnit',
-            key:'priceUnit',
-        },{
-            title:'需求开始日期',
-            dataIndex:'startDate',
-            key:'startDate',
-        },{
-            title:'需求周期',
-            dataIndex:'cycle',
-            key:'cycle',
-        },{
-            title:'工作地点',
-            dataIndex:'workAddress',
-            key:'workAddress',
+            dataIndex:'demandName',
+            key:'demandName',
         },{
             title: '操作',
             key: 'action',
             render: (text,record) => (
                 <span>
                     <Button type="primary" onClick={()=>{
-                    }}>查看</Button>&nbsp;&nbsp;&nbsp;
+                    }}>查看需求信息</Button>&nbsp;&nbsp;&nbsp;
+                    <Button onClick={()=>{
+
+                    }}>更改出项目日期</Button>
                     <Button type="danger" onClick={()=>{
 
-                    }}>删除</Button>
+                    }}>解除绑定关系</Button>
                 </span>
             ),
         }];
