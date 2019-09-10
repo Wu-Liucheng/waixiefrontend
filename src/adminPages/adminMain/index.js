@@ -17,6 +17,8 @@ import DemandApply from '../../adminCommon/demandApply/index';
 import CheckConsultant from '../../adminCommon/checkConsultant/index';
 import CloseDemand from '../../adminCommon/closeDemand/index';
 import ChangeConsultantStatus from '../../adminCommon/changeConsultantStatus/index';
+import CommentOnConsultant from '../../adminCommon/commentOnConsultant/index';
+import MessageToManager from '../../adminCommon/messageToManager/index';
 import {actionCreator as consultantsInfoActionCreator} from '../../adminCommon/consultantsInfo/store';
 const { SubMenu } = Menu;
 const {
@@ -79,6 +81,15 @@ class adminMain extends PureComponent {
                             <Menu.Item key="7"><Icon type="poweroff" />外协需求关闭</Menu.Item>
                             <Menu.Item key="8"><Icon type="edit" />外协顾问状态修改</Menu.Item>
                         </SubMenu>
+                        {role === 1?
+                            <SubMenu
+                            key="sub4"
+                            title={<span><Icon type="deployment-unit" /><span>项目经理功能</span></span>}
+
+                        >
+                            <Menu.Item key="13"><Icon type="ellipsis" />评价外协顾问</Menu.Item>
+                            <Menu.Item key="14"><Icon type="message" />消息（来自外协专员）</Menu.Item>
+                            </SubMenu>:null}
                         <SubMenu
                             key="sub3"
                             title={<span><Icon type="setting" /><span>系统设置</span></span>}
@@ -152,6 +163,10 @@ class adminMain extends PureComponent {
                                         </Breadcrumb>
 
                                     </Content>;
+                                case "13":
+                                    return <CommentOnConsultant/>;
+                                case "14":
+                                    return <MessageToManager/>;
                                 default:
                                     return <div></div>
                             }
