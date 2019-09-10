@@ -6,11 +6,18 @@ import {
     Table,
     Breadcrumb,
     message,
+    Modal,
+    Divider,
+    DatePicker, Switch,
 } from 'antd';
 import {actionCreator} from "./store";
+import {actionCreator as modalDemandActionCreator} from "../modalDemand/store";
+import ModalDemand from "../modalDemand";
+import moment from "moment";
 const {
     Content
 } = Layout;
+const {confirm} = Modal;
 class ChangeConsultantStatus extends PureComponent{
 
     componentDidMount() {
@@ -29,7 +36,17 @@ class ChangeConsultantStatus extends PureComponent{
             total,
             currentPageCode,
             checkerId,
-        } = this.props;
+            getDemandInfo,
+
+            mdlIsVisible,changeMdlIsVisible,
+            focusUserId,
+            consultantName,
+            planDate,changePlanDate,
+            isBeingUsed,changeIsBeingUsed,
+            getConsultantStatus,
+            updateStatus,
+            relationIsOver,
+    } = this.props;
 
         const columns = [{
             title:'序号',
@@ -49,12 +66,24 @@ class ChangeConsultantStatus extends PureComponent{
             render: (text,record) => (
                 <span>
                     <Button type="primary" onClick={()=>{
+                        getDemandInfo(record.demandId);
                     }}>查看需求信息</Button>&nbsp;&nbsp;&nbsp;
                     <Button onClick={()=>{
-
+                        getConsultantStatus(record.userId);
                     }}>更改出项目日期</Button>
                     <Button type="danger" onClick={()=>{
-
+                        confirm({
+                            title: '是否解除绑定关系？',
+                            content: '注意：此操作不可撤销，一般在项目结束后解除',
+                            okText:"确定",
+                            okType:"danger",
+                            cancelText:"取消",
+                            onOk() {
+                                relationIsOver(record.demandId,record.userId,checkerId,currentPageCode);
+                            },
+                            onCancel() {
+                            },
+                        });
                     }}>解除绑定关系</Button>
                 </span>
             ),
@@ -74,6 +103,27 @@ class ChangeConsultantStatus extends PureComponent{
                                }}} />
 
                 </div>
+                <ModalDemand/>
+                <Modal visible={mdlIsVisible}
+                       onCancel={()=>{changeMdlIsVisible(false)}}
+                       onOk={()=>{updateStatus(focusUserId,planDate,isBeingUsed)
+                       }}
+                       title="修改外协顾问状态"
+                       okText="确定"
+                       cancelText="取消"
+                >
+                    姓名：{consultantName}
+                    <Divider/>
+                    计划出项目日期：<DatePicker
+                    value={planDate.toString()===""?moment():moment(planDate.toString(),"YYYY-MM-DD")}
+                    onChange={changePlanDate}
+                />
+                    <Divider/>
+                    是否在任用中：<Switch checkedChildren="任用中" unCheckedChildren="空闲中"
+                                   checked={isBeingUsed}
+                                   onChange={(checked)=>{changeIsBeingUsed(checked)}}
+                />
+                </Modal>
             </Content>
         );
     }
@@ -87,9 +137,23 @@ const mapState = (state) => ({
     total:state.getIn(['changeConsultantStatus','total']),
     currentPageCode:state.getIn(['changeConsultantStatus','currentPageCode']),
     checkerId:state.getIn(['changeConsultantStatus','checkerId']),
+
+    mdlIsVisible:state.getIn(['changeConsultantStatus','mdlIsVisible']),
+    focusUserId: state.getIn(['changeConsultantStatus','focusUserId']),
+    consultantName:state.getIn(['changeConsultantStatus','username']),
+    planDate:state.getIn(['changeConsultantStatus','planDate']),
+    isBeingUsed:state.getIn(['changeConsultantStatus','isBeingUsed']),
 });
 const mapDispatch = (dispatch) => ({
     setCheckerId(username){dispatch(actionCreator.setCheckerId(username))},
     getConsultantData(checkerId,pageCode){dispatch(actionCreator.getConsultantData(checkerId,pageCode))},
+    getDemandInfo(id){dispatch(modalDemandActionCreator.showDemandInfo(id))},
+    changeMdlIsVisible(val){dispatch(actionCreator.changeMdlIsVisible(val))},
+    changePlanDate(date,dateString){dispatch(actionCreator.changePlanDate(dateString))},
+    changeIsBeingUsed(val){dispatch(actionCreator.changeIsBeingUsed(val))},
+    getConsultantStatus(id){dispatch(actionCreator.getConsultantStatus(id))},
+    updateStatus(id,planDate,isBeingUsed){dispatch(actionCreator.updateStatus(id,planDate,isBeingUsed)
+    )},
+    relationIsOver(demandId,userId,checkerId,pageCode){dispatch(actionCreator.relationIsOver(demandId,userId,checkerId,pageCode))},
 });
 export default connect(mapState,mapDispatch)(ChangeConsultantStatus);
