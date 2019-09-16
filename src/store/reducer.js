@@ -26,6 +26,7 @@ import {reducer as closeDemandReducer} from '../adminCommon/closeDemand/store';
 import {reducer as changeConsultantStatusReducer} from '../adminCommon/changeConsultantStatus/store';
 import {reducer as commentOnConsultantReducer} from '../adminCommon/commentOnConsultant/store';
 import {reducer as messageToManagerReducer} from '../adminCommon/messageToManager/store';
+import {reducer as adminInfoReducer} from '../adminCommon/adminInfo/store';
 export default combineReducers({
     login:loginReducer,
     register:registerReducer,
@@ -49,4 +50,5 @@ export default combineReducers({
     changeConsultantStatus:changeConsultantStatusReducer,
     commentOnConsultant:commentOnConsultantReducer,
     messageToManager:messageToManagerReducer,
+    adminInfo:adminInfoReducer,
 })

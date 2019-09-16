@@ -1,0 +1,10 @@
+export const CHANGE_TAB_STATUS = "ai/0";
+export const CHANGE_MANAGER_DATA = "ai/1";
+export const CHANGE_MANAGER_TOTAL = "ai/2";
+export const CHANGE_MANAGER_PAGE_CODE = "ai/3";
+export const CHANGE_CHECKER_DATA = "ai/4";
+export const CHANGE_CHECKER_TOTAL = "ai/5";
+export const CHANGE_CHECKER_PAGE_CODE = "ai/6";
+export const CHANGE_CORPORATE_ADMIN_DATA = "ai/7";
+export const CHANGE_CORPORATE_ADMIN_TOTAL = "ai/8";
+export const CHANGE_CORPORATE_ADMIN_PAGE_CODE = "ai/9";

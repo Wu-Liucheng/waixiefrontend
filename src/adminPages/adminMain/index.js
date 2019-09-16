@@ -19,6 +19,7 @@ import CloseDemand from '../../adminCommon/closeDemand/index';
 import ChangeConsultantStatus from '../../adminCommon/changeConsultantStatus/index';
 import CommentOnConsultant from '../../adminCommon/commentOnConsultant/index';
 import MessageToManager from '../../adminCommon/messageToManager/index';
+import AdminInfo from '../../adminCommon/adminInfo/index';
 import {actionCreator as consultantsInfoActionCreator} from '../../adminCommon/consultantsInfo/store';
 const { SubMenu } = Menu;
 const {
@@ -65,6 +66,7 @@ class adminMain extends PureComponent {
                             key="sub1"
                             title={<span><Icon type="info-circle" /><span>基础信息维护</span></span>}
                         >
+                            <Menu.Item key="15"><Icon type="star" theme="twoTone" />管理员信息</Menu.Item>
                             <Menu.Item key="2" onClick={()=>{
                                 adminMainGetOnePageConsultantInfo(1);
                                 adminMainChangeConsultantsDataPageCode(1);
@@ -95,12 +97,12 @@ class adminMain extends PureComponent {
                             title={<span><Icon type="setting" /><span>系统设置</span></span>}
                         >
                             <Menu.Item key="10"><Icon type="link" />流程定制</Menu.Item>
-                            <Menu.Item key="11"><Icon type="upload" />上传</Menu.Item>
+                            {/*<Menu.Item key="11"><Icon type="upload" />上传</Menu.Item>*/}
                         </SubMenu>
-                        <Menu.Item key="12">
+                        {/*<Menu.Item key="12">
                             <Icon type="file" />
                             <span>File</span>
-                        </Menu.Item>
+                        </Menu.Item>*/}
                     </Menu>
                 </Sider>
                 <Layout>
@@ -167,6 +169,8 @@ class adminMain extends PureComponent {
                                     return <CommentOnConsultant/>;
                                 case "14":
                                     return <MessageToManager/>;
+                                case "15":
+                                    return <AdminInfo/>;
                                 default:
                                     return <div></div>
                             }
