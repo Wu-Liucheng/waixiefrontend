@@ -104,3 +104,69 @@ export const getCorporateAdminData = (pageCode) => {
             })
     }
 };
+export const deleteManager = (id,pageCode) => {
+    return (dispatch) => {
+        let cipher = config.ciphertext();
+        let param = new URLSearchParams();
+        param.append("id",id);
+        param.append("key",cipher.key);
+        param.append("value",cipher.value);
+        axios.post(config.DOMAIN_NAME+'/delete-manager',param)
+            .then((res)=>{
+                if(res.data.data){
+                    message.info("已删除。");
+                    dispatch(getManagerData(pageCode));
+                }
+                else {
+                    message.error(res.data.info);
+                }
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+    }
+};
+export const deleteChecker = (id,pageCode) => {
+    return (dispatch) => {
+        let cipher = config.ciphertext();
+        let param = new URLSearchParams();
+        param.append("id",id);
+        param.append("key",cipher.key);
+        param.append("value",cipher.value);
+        axios.post(config.DOMAIN_NAME+'/delete-checker',param)
+            .then((res)=>{
+                if(res.data.data){
+                    message.info("已删除。");
+                    dispatch(getCheckerData(pageCode));
+                }
+                else {
+                    message.error(res.data.info);
+                }
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+    }
+};
+export const deleteCorporateAdmin = (id,pageCode) => {
+    return (dispatch) => {
+        let cipher = config.ciphertext();
+        let param = new URLSearchParams();
+        param.append("id",id);
+        param.append("key",cipher.key);
+        param.append("value",cipher.value);
+        axios.post(config.DOMAIN_NAME+'/delete-corporate-admin',param)
+            .then((res)=>{
+                if(res.data.data){
+                    message.info("已删除。");
+                    dispatch(getCorporateAdminData(pageCode));
+                }
+                else {
+                    message.error(res.data.info);
+                }
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+    }
+};

@@ -5,7 +5,7 @@ import {
     Button,
     Table,
     Breadcrumb,
-    Tag,Drawer,Divider,Tabs,Icon,Modal,
+    Tag,Drawer,Divider,Tabs,Icon,Modal,message,
 } from 'antd';
 import {actionCreator} from "./store";
 const {
@@ -29,15 +29,15 @@ class AdminInfo extends PureComponent{
 
             tabStatus,changeTabStatus,
 
-            managerData,getManagerData,
+            managerData,getManagerData,deleteManager,
             managerTotal,getCheckerData,
             managerPageCode,getCorporateAdminData,
 
-            checkerData,
+            checkerData,deleteChecker,
             checkerTotal,
             checkerPageCode,
 
-            corporateAdminData,
+            corporateAdminData,deleteCorporateAdmin,
             corporateAdminTotal,
             corporateAdminPageCode,
         } = this.props;
@@ -70,21 +70,25 @@ class AdminInfo extends PureComponent{
             key: 'action',
             render: (text,record) => (
                 <span>
-                    <Button type="primary" onClick={()=>{
-                    }}>查看需求信息</Button>&nbsp;&nbsp;&nbsp;
                     <Button type="danger" onClick={()=>{
                         confirm({
-                            title: '是否解除绑定关系？',
-                            content: '注意：此操作不可撤销，一般在项目结束后解除',
+                            title: '是否删除该用户？',
+                            content: '注意：此操作不可撤销',
                             okText:"确定",
                             okType:"danger",
                             cancelText:"取消",
                             onOk() {
+                                if(role !== 0){
+                                    message.error("没有权限！");
+                                }
+                                else {
+                                    deleteManager(record.id,managerPageCode);
+                                }
                             },
                             onCancel() {
                             },
                         });
-                    }}>解除绑定关系</Button>
+                    }}>删除</Button>
                 </span>
             ),
         }];
@@ -114,21 +118,25 @@ class AdminInfo extends PureComponent{
             key: 'action',
             render: (text,record) => (
                 <span>
-                    <Button type="primary" onClick={()=>{
-                    }}>查看需求信息</Button>&nbsp;&nbsp;&nbsp;
                     <Button type="danger" onClick={()=>{
                         confirm({
-                            title: '是否解除绑定关系？',
-                            content: '注意：此操作不可撤销，一般在项目结束后解除',
+                            title: '是否删除该用户？',
+                            content: '注意：此操作不可撤销',
                             okText:"确定",
                             okType:"danger",
                             cancelText:"取消",
                             onOk() {
+                                if(role !== 0){
+                                    message.error("没有权限！");
+                                }
+                                else {
+                                    deleteChecker(record.id,checkerPageCode)
+                                }
                             },
                             onCancel() {
                             },
                         });
-                    }}>解除绑定关系</Button>
+                    }}>删除</Button>
                 </span>
             ),
         }];
@@ -162,21 +170,25 @@ class AdminInfo extends PureComponent{
             key: 'action',
             render: (text,record) => (
                 <span>
-                    <Button type="primary" onClick={()=>{
-                    }}>查看需求信息</Button>&nbsp;&nbsp;&nbsp;
                     <Button type="danger" onClick={()=>{
                         confirm({
-                            title: '是否解除绑定关系？',
+                            title: '是否删除该用户？',
                             content: '注意：此操作不可撤销，一般在项目结束后解除',
                             okText:"确定",
                             okType:"danger",
                             cancelText:"取消",
                             onOk() {
+                                if(role !== 0){
+                                    message.error("没有权限！");
+                                }
+                                else {
+                                    deleteCorporateAdmin(record.id,corporateAdminPageCode);
+                                }
                             },
                             onCancel() {
                             },
                         });
-                    }}>解除绑定关系</Button>
+                    }}>删除</Button>
                 </span>
             ),
         }];
@@ -193,6 +205,7 @@ class AdminInfo extends PureComponent{
                             case "1":changeTabStatus(1);break;
                             case "2":changeTabStatus(2);break;
                             case "3":changeTabStatus(3);break;
+                            case "4":changeTabStatus(4);break;
                             default:changeTabStatus(0);break;
                         }
                     }}>
@@ -247,6 +260,18 @@ class AdminInfo extends PureComponent{
                                     getCorporateAdminData(code);
                                     }}} />
                         </TabPane>
+                        <TabPane
+                            tab={
+                                <span>
+                                <Icon type="plus"/>
+                                添加管理员
+                                </span>
+                            }
+                            key="4"
+                            disabled={role!==0}
+                        >
+
+                        </TabPane>
                     </Tabs>
                 </div>
             </Content>
@@ -275,5 +300,8 @@ const mapDispatch = (dispatch) => ({
     getManagerData(pageCode){dispatch(actionCreator.getManagerData(pageCode))},
     getCheckerData(pageCode){dispatch(actionCreator.getCheckerData(pageCode))},
     getCorporateAdminData(pageCode){dispatch(actionCreator.getCorporateAdminData(pageCode))},
+    deleteManager(id,pageCode){dispatch(actionCreator.deleteManager(id,pageCode))},
+    deleteChecker(id,pageCode){dispatch(actionCreator.deleteChecker(id,pageCode))},
+    deleteCorporateAdmin(id,pageCode){dispatch(actionCreator.deleteCorporateAdmin(id,pageCode))},
 });
 export default connect(mapState,mapDispatch)(AdminInfo);
