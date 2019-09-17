@@ -5,9 +5,10 @@ import {
     Button,
     Table,
     Breadcrumb,
-    Tag,Drawer,Divider,Tabs,Icon,Modal,message,
+    Tabs,Icon,Modal,message,
 } from 'antd';
 import {actionCreator} from "./store";
+import AddRole from '../addRoleForm/index';
 const {
     Content
 } = Layout;
@@ -24,10 +25,8 @@ class AdminInfo extends PureComponent{
 
     render() {
         const {
-            role,
-            username,
-
-            tabStatus,changeTabStatus,
+            role
+            ,changeTabStatus,
 
             managerData,getManagerData,deleteManager,
             managerTotal,getCheckerData,
@@ -270,7 +269,9 @@ class AdminInfo extends PureComponent{
                             key="4"
                             disabled={role!==0}
                         >
-
+                            <div style={{width:"80%",display:"flex",justifyContent:"center"}}>
+                                <AddRole/>
+                            </div>
                         </TabPane>
                     </Tabs>
                 </div>

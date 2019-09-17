@@ -1,0 +1,1 @@
+export const CHANGE_CLIENT_INFO = "arf/0";
